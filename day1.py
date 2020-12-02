@@ -1,14 +1,3 @@
-# from collections import Counter
-# from collections import deque
-# import asyncio
-# import itertools
-# import json
-# import math
-# import re
-# import string
-# import sys
-# import unittest
-
 with open('data/my_input/1.in') as f:
     lines = [  line.strip() for line in f]
 
