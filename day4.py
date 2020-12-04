@@ -1,26 +1,5 @@
-# from collections import Counter
-# from collections import deque
-# import asyncio
-# import itertools
-# import json
-# import math
 import re
-# import string
-# import sys
-# import unittest
 
-#c=[ v for (k,v) in  Counter(line).items()  if k in 'aeiou']
-# double_letter_with_something = re.compile(r'.*(..).*\1.*', re.IGNORECASE)
-#     match2= double_letter_with_something.match(line)
-#     if match and match2:
-#         return 1
-# num=lambda s : re.findall('\d+',s)
-
-# #
-# hgt:161cm iyr:1962
-# pid:394421140
-# ecl:gry
-# cid:209 hcl:#efcc98 byr:2001
 with open('data/my_input/4.in') as f:
     lines = [  line.strip() for line in f]
 
