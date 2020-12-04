@@ -84,22 +84,16 @@ def part2(vlines):
 
 def checkbyr(s):
     a= re.compile(r'.*byr:([a-zA-Z0-9]+)', re.IGNORECASE)
-    b=a.match(s)
-    if 1920<=int(b.groups()[0])<= 2002:
-        return True
-    return False
+    b=a.match(s) 
+    return 1920<=int(b.groups()[0])<= 2002
 def checkiyr(s):
     a= re.compile(r'.*iyr:([a-zA-Z0-9]+)', re.IGNORECASE)
     b=a.match(s)
-    if b and 2010<=int(b.groups()[0])<= 2020:
-        return True
-    return False
+    return  b and 2010<=int(b.groups()[0])<= 2020
 def checkeyr(s):
     a= re.compile(r'.*eyr:([a-zA-Z0-9]+)', re.IGNORECASE)
     b=a.match(s)
-    if b and  2020<=int(b.groups()[0])<= 2030:
-        return True
-    return False
+    return b and  2020<=int(b.groups()[0])<= 2030
 def checkhgt(s):
     a= re.compile(r'.*hgt:([a-zA-Z0-9]+)', re.IGNORECASE)
     b=a.match(s)
@@ -115,22 +109,16 @@ def checkhgt(s):
     return False
 def checkpid(s):
     a= re.compile(r'.*pid:([0-9]+)', re.IGNORECASE)
-    b=a.match(s)
-    if b and len(b.groups()[0])==9:
-        return True
-    return False
+    b=a.match(s) 
+    return b and len(b.groups()[0])==9
+fs=frozenset(["amb", "blu", "brn", "gry", "grn", "hzl", "oth"])
 def checkecl(s):
     a= re.compile(r'.*ecl:([a-zA-Z0-9]+)', re.IGNORECASE)
-    b=a.match(s)
-    if b:
-        if 'amb' in b.groups()[0] or 'blu' in b.groups()[0] or 'brn' in b.groups()[0] or 'gry'  in b.groups()[0] or'grn'  in b.groups()[0] or'hzl' in b.groups()[0] or 'oth' in b.groups()[0] :
-            return True
-    return False
+    b=a.match(s) 
+    return b and b.groups()[0] in fs
 def checkhcl(s):
-    a= re.compile(r'.*hcl:(#[a-f0-9]+)', re.IGNORECASE)
-    b=a.match(s)
-    if b :
-        return True
-    return False
+    a= re.compile(r'.*hcl:(#[a-f0-9]+)', re.IGNORECASE) 
+    return a.match(s) 
+    
 print(part1(lines)) #233
 print(part2(lines)) #111
