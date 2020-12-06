@@ -1,33 +1,15 @@
+import functools
+
 with open('data/my_input/6.in') as f:
-    lines = [  line.strip() for line in f]
+    lines = f.read().split('\n\n')
 
 def part1(vlines):
-    d=set()
-    counter=0
-    for line in vlines:
-        if len(line.strip())==0:
-            counter+=len(list(d))
-            d=set()
-        else:
-            for i in line:
-                d.add(i)
-    counter+=len(list(d))   
-        
-
-    return counter
+    return sum(map(len,[set(l.replace('\n','')) for l in vlines]) )
 
 def part2(vlines):
-    counter=0
-    s=set("azertyuiopqsdfghjklmwxcvbn")
-    for line in vlines:
-        if len(line.strip())==0:
-            counter+=len(s)
-            s=set("azertyuiopqsdfghjklmwxcvbn")
-        else: 
-            s=s&set(line)
-    
-    counter+=len(s)
-    return counter
+    lll=[l.strip().split('\n') for l in vlines]
+    a= lambda c,d : c&d
+    return sum([ len(i) for i in [functools.reduce(a,list(map(set,j))) for j in lll]])
 
 print(part1(lines))
 print(part2(lines))
