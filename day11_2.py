@@ -38,12 +38,10 @@ def run(di,tol,part2):
     return { i: calculate(di,i,tol,part2) for i in di.keys()}
 
 def part1and2(di,tol,part2):
-    while True:
-        d2=run(di,tol,part2)
-        if di==d2:
-            print(''.join(di.values()).count('#'))
-            break
-        di,d2=d2,{} 
+    d2=run(di,tol,part2)
+    while d2!=di:
+        di,d2=d2,run(d2,tol,part2)
+    print(''.join(di.values()).count('#'))
     
 
 part1and2(D,4,False) #2113
