@@ -79,38 +79,23 @@ def transform(a,b,c,li):
     return c
 
 def part1(vlines):
-    i=0
-    d=dict()
-    d2=dict()
+    d,d2={},{}
     stop = False
-    counter=0
-    li1=vlines
-    li2=[]
+    li1,li2=vlines,[]
     while not stop:
-        i=0
-        
-        for i  in range(len(li1)):
-            u=li1[i]
+        for i,u  in enumerate(li1):
             s=""
-            for j in range(len(u)) :
-                if u[j]=='#' or u[j]=='L':
-                    d2[(i,j)]=transform(i,j,u[j],li1)
+            for j,v in enumerate(u) :
+                if v in '#L':
+                    s+=transform(i,j,v,li1)
                 else :
-                    d2[(i,j)]=u[j]
-                
-                s+=d2[(i,j)]
+                    s+=v
             li2.append(s)
-        if d2==d:
+        if li1==li2:
             stop= True
-        
-        d.clear()
-        for e in d2:
-            d[e]=d2[e]
-        d2.clear()
-        counter+=1
-        li1=li2.copy()
-        li2=[]
-    return  len([(k,v) for k,v in d.items() if v=='#'])
+        d,d2=d2,{}
+        li1,li2=li2,[]
+    return  ("".join(li1)).count('#')
 
 def findfirst(a,b,i,j,li):
     k=a+i
@@ -166,7 +151,6 @@ def part2(vlines):
     d=dict()
     d2=dict()
     stop = False
-    counter=0
     li1=vlines
     li2=[]
     while not stop:
@@ -186,13 +170,8 @@ def part2(vlines):
         if d2==d:
             stop= True
         
-        d.clear()
-        for e in d2:
-            d[e]=d2[e]
-        d2.clear()
-        counter+=1
-        li1=li2.copy()
-        li2=[]
+        d,d2=d2,{}
+        li1,li2=li2,[]
     return  len([(k,v) for k,v in d.items() if v=='#'])
 
 print(part1(lines))
