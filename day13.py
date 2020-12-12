@@ -11,6 +11,10 @@
 
 with open('data/my_input/13.in') as f:
     lines = [  line.strip() for line in f]
+    # dlines = { (x,y): cell for x,row in enumerate(lines) for y,cell in enumerate(row) }
+
+with open('data/test/13.test') as f2:
+    tests = [  test.strip() for test in f2]
 
 def part1(vlines):
     return 0
@@ -18,5 +22,7 @@ def part1(vlines):
 def part2(vlines):
     return 0
 
-print(part1(lines))
-print(part2(lines))
+print("test part1",part1(tests))
+print("output part1",part1(lines))
+print("test part2",part2(tests))
+print("output part2",part2(lines))
