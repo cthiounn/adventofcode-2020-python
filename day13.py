@@ -13,6 +13,8 @@ with open('data/my_input/13.in') as f:
     lines = [  line.strip() for line in f]
     # dlines = { (x,y): cell for x,row in enumerate(lines) for y,cell in enumerate(row) }
 
+#n, m = len(lines), len(lines[0])
+
 with open('data/test/13.test') as f2:
     tests = [  test.strip() for test in f2]
 

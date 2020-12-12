@@ -47,5 +47,5 @@ def transform(a,b,c,li,part2,tol):
         return '#' 
     return c
  
-print(part1and2(lines,False,4))
-print(part1and2(lines,True,5))
+print(part1and2(lines,False,4)) #2113
+print(part1and2(lines,True,5)) #1865
