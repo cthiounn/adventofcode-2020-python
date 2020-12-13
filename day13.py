@@ -8,8 +8,6 @@ def chinese_remainder(n, a):
         sum += a_i * mul_inv(p, n_i) * p
     return sum % prod
  
- 
- 
 def mul_inv(a, b):
     b0 = b
     x0, x1 = 0, 1
@@ -30,22 +28,15 @@ with open('data/test/13.test') as f2:
 def part1(vlines):
     fi,sec=vlines
     li=list()
+    u=int(fi)
     for j in sec.split(','):
         if 'x' not in j:
-            li.append(j)
-    li=sorted(li)
-    u=int(fi)
-    li2=[]
-
-    for j in li:
-        i=0
-        while u >= i*int(j):
+            i=0
+            while u >= i*int(j):
+                i+=1
             if u <= i*int(j):
-                li2.append(int(j)* (i*int(j)-u))
-            i+=1
-        if u <= i*int(j):
-            li2.append((i*int(j),int(j)* (i*int(j)-u)))
-    return min(li2)
+                li.append((i*int(j),int(j)* (i*int(j)-u)))
+    return min(li)[1]
 
 def part2(vlines):
     fi,sec=vlines
