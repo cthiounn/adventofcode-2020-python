@@ -13,7 +13,7 @@ with open('data/my_input/24.in') as f:
     lines = [  line.strip() for line in f]
     # dlines = { (x,y): cell for x,row in enumerate(lines) for y,cell in enumerate(row) }
 
-with open('data/test/13.test') as f2:
+with open('data/test/24.test') as f2:
     tests = [  test.strip() for test in f2]
 
 def part1(vlines):
