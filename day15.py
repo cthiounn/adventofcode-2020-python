@@ -1,17 +1,5 @@
-# from collections import Counter
-# from collections import deque
-# import asyncio
-# import itertools
-# import json
-# import math
-# import re
-# import string
-# import sys
-# import unittest
-
 with open('data/my_input/15.in') as f:
     lines = [  line.strip() for line in f]
-    # dlines = { (x,y): cell for x,row in enumerate(lines) for y,cell in enumerate(row) }
 
 with open('data/test/15.test') as f2:
     tests = [  test.strip() for test in f2]
