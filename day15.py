@@ -16,13 +16,54 @@ with open('data/my_input/15.in') as f:
 with open('data/test/15.test') as f2:
     tests = [  test.strip() for test in f2]
 
-def part1(vlines):
-    return 0
+def part1(vlines,num):
+    d=dict()
+    li= ''.join(vlines).split(",")
+    r=1
+    
+    lastindex=dict()
+    for i,j in enumerate(li):
+        lastindex[int(j)]=i+1
+        prev=int(j)
+        r=i+1
 
-def part2(vlines):
-    return 0
+    new=True
+    while r!=num:
+        r+=1
+        if new :
+            
+            #speak
+            prev=0
+            
+            #precalculate
+            if prev in lastindex:
+                d[prev]=r-lastindex[prev]
+                new=False
+            else:
+                new=True
+            
+            
+            #record
+            lastindex[prev]=r
 
-print("test part1",part1(tests))
-print("output part1",part1(lines))
-print("test part2",part2(tests))
-print("output part2",part2(lines))
+        else:
+            #speak
+            prev=d[prev]
+
+            #precalculate
+            if prev in lastindex:
+                new=False
+                d[prev]=r-lastindex[prev]
+            else:
+                new=True
+
+            #record
+            lastindex[prev]=r
+        
+    return prev
+
+
+print("test part1",part1(tests,2020))
+print("output part1",part1(lines,2020))
+print("test part2",part1(tests,30000000))
+print("output part2",part1(lines,30000000))
