@@ -7,6 +7,7 @@
 import collections
 import re
 import copy
+import functools
 # import string
 # import sys
 # import unittest
@@ -92,15 +93,12 @@ def part1(vlines):
         elif l:
             li.append(l)
     d[ii]=li
-    print(ii,li)
     d2=collections.defaultdict(int)
     for aa,bb in d.items():
         for aa1,bb1 in d.items():
             if aa==aa1:
                 continue
-            print(aa,aa1)
             if matchanyborder(bb1,bb):
-                print("ok")
                 d2[aa1]+=1
                 
         # if matchanyrotation(li,bb,matchup):
@@ -112,14 +110,16 @@ def part1(vlines):
         # elif matchanyrotation(bb,li,matchleft):
         #     print("r",ii,aa)
     
-    print([i for (i,j) in d2.items() if j==2])
-    return 0
+    mul=lambda a,b:a*b
+    bordertiles=[int(i) for (i,j) in d2.items() if j==2]
+    
+    return functools.reduce(mul,bordertiles)
 
 def part2(vlines):
     return 0
 
 print("test part1",part1(tests))
-print("output part1",part1(lines))
+print("output part1",part1(lines)) #11788777383197
 # print("test part2",part2(tests))
 # print("output part2",part2(lines))
 
